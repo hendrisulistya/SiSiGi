@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Your Website</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="loadSection('home', 'pages/home.html')">Home</a></li>
+            <li><a href="#portfolio" onclick="loadSection('portfolio', 'pages/portfolio.html')">Portfolio</a></li>
+            <li><a href="#blog" onclick="loadSection('blog', 'pages/blog.html')">Blog</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Content will be loaded here by default -->
+    </main>
+
+    <script>
+        function loadSection(sectionId, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Replace the content of <main> with the loaded section
+                    document.querySelector('main').innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        }
+    
+        // Load the home section by default when the page loads
+        window.addEventListener('load', () => loadSection('home', 'pages/home.html'));
+        // You can load other sections similarly
+    </script>
+</body>
+</html>

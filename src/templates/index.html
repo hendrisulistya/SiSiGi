@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+    <link rel="stylesheet" href='{{style}}'>
+</head>
+<body>
+    <header>
+        <h1>Personal Blog</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home" id="homeLink">Home</a></li>
+            {{navigation}}
+        </ul>
+    </nav>
+    <main>
+        
+    </main>
+
+    <script>
+        function loadSection(sectionId, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('main').innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        }
+
+        function loadDefaultContent() {
+                const h2 = document.createElement('h2');
+                h2.textContent = 'Welcome to Home';
+                const p = document.createElement('p');
+                p.textContent = 'This is the Home section content. You can add your own content here.';
+                const mainElement = document.querySelector('main');
+                mainElement.innerHTML = '';
+                mainElement.appendChild(h2);
+                mainElement.appendChild(p);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const homeLink = document.getElementById('homeLink');
+            homeLink.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default link behavior
+                loadDefaultContent();
+            });
+
+        });
+
+        loadDefaultContent();
+    </script>
+</body>
+</html>
