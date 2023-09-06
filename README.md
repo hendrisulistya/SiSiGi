@@ -1,4 +1,4 @@
-# My Custom SSG Generator
+# Sisgi : Custom SSG Generator
 
 A simple and flexible static site generator.
 
@@ -12,20 +12,26 @@ A simple and flexible static site generator.
 ## Installation
 
 1. Clone the repository:
-
+```console
 git clone https://github.com/hendrisulistya/sisgi.git
+```
 
 
 2. Install the dependencies:
-
+```console
 npm install
+```
 or
+```console
 yarn add
+```
 
 
 3. Generate the static site:
 
+```console
 node build.js
+```
 
 
 ## Supported Features
